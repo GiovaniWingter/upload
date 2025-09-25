@@ -39,7 +39,6 @@ body {
     height: 80px;
     object-fit: cover;
     border-radius: 5px;
-    display: none;
 }
 
 .upload-form button {
@@ -65,11 +64,15 @@ body {
     min-width: 400px;
 }
 
+.grid-container div {
+    grid-column: 1 / 6;
+}
+
 /* Estilo dos itens do grid */
 .grid-item img {
     width: 80px;
     height: 80px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 5px;
     transition: transform 0.3s ease;
 }

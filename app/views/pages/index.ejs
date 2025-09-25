@@ -7,25 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Modelo App Node </title>
     <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/script.js"></script>
 </head>
 
 <body>
-   <form action="/salvar-img" method="post" enctype="application/x-www-form-urlencoded" class="upload-form"> 
-        <label for="img">Escolah a sua imagem:</label>j
+   <form action="/salvar-img" method="post" enctype="multipart/form-data" class="upload-form"> 
+        <label for="img">Escolah a sua imagem:</label>
         <input type="file" name="img" id="img">
         <button type="submit">Enviar</button>
-        <img src="imagens/preview.png" class="preview-img" alt="preview da imagem">
+        <img src="imagens/preview.png" id="img-preview" class="preview-img" alt="preview da imagem">
    </form>
 
     <section class="grid-container">
-        <article class="grid-item"><img src="imagens/galeria-prod/add foto.png" alt="Imagem 1"></article>
-        <article class="grid-item"><img src="imagens/galeria-prod/add foto.png" alt="Imagem 2"></article>
-        <article class="grid-item"><img src="imagens/galeria-prod/add foto.png" alt="Imagem 3"></article>
-        <article class="grid-item"><img src="imagens/galeria-prod/add foto.png" alt="Imagem 4"></article>
-        <article class="grid-item"><img src="imagens/galeria-prod/add foto.png" alt="Imagem 5"></article>
-        <article class="grid-item"><img src="imagens/galeria-prod/add foto.png" alt="Imagem 6"></article>
-        <article class="grid-item"><img src="imagens/galeria-prod/add foto.png" alt="Imagem 7"></article>
-        <article class="grid-item"><img src="imagens/galeria-prod/add foto.png" alt="Imagem 8"></article>
+        <%
+            if(listaImagens && listaImagens.length > 0){
+                listaImagens.forEach((imagem)=>{
+                    %>
+                    <article class="grid-item"><img src="imagens/galeria-prod/<%=imagem%>" alt="Imagem 1"></article>
+
+                    <%
+                })
+                
+            }else{
+                %>
+                <div>
+                    <h2>Não há imagens na pasta!</h2>
+                    <h3>Use o formulário acima para carregar um imagem.</h3>
+                </div>
+                    <%
+            }
+        %>
+
     </section>
 </body>
 
